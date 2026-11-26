@@ -1,31 +1,49 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime configuration. Service URLs live in encrypted repository secrets ($SITE_...), not in this file,
+# so this public repository and the status page do not reveal what my services are called or where they live.
+owner: yougotborked
+repo: status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Git
+    url: $SITE_GIT
+  - name: Login
+    url: $SITE_LOGIN
+  - name: Cloud
+    url: $SITE_CLOUD
+  - name: Band cloud
+    url: $SITE_BAND_CLOUD
+  - name: Band website
+    url: $SITE_BAND
+  - name: Band website (old domain)
+    url: $SITE_BAND_OLD
+  - name: Home automation
+    url: $SITE_HOME
+  - name: Media
+    url: $SITE_MEDIA
+  - name: Main site
+    url: $SITE_MAIN
+
+# Open an issue when something goes down and assign it to me, so GitHub notifies me (email and the GitHub mobile app).
+assignees:
+  - yougotborked
+
+workflowSchedule:
+  uptime: "*/5 * * * *"
+  responseTime: "0 * * * *"
+  graphs: "0 */6 * * *"
+  summary: "*/30 * * * *"
+  staticSite: "10,40 * * * *"
+  updates: "0 3 * * 1"
+  updateTemplate: "0 4 * * 1"
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  baseUrl: /status
+  logoUrl: https://raw.githubusercontent.com/upptime/upptime/master/assets/icon.svg
+  name: Status
+  introTitle: "Live status of my services."
+  introMessage: "Checked every 5 minutes from outside my network. If something is down, an incident shows up here."
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: Incidents
+      href: https://github.com/$OWNER/$REPO/issues
